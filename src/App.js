@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
+export const App = () => {
+  const [roll, setRoll] = useState(0);
+
+  const standardDiceRoll = () => {
+    setRoll(Math.floor(Math.random() * 6) + 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="grid-container">
+      <h1>D&D Dice Roll App</h1>
+        <div className="standard-single-roll">
+          <h5>Push to roll the dice</h5>
+          <button onClick={() => standardDiceRoll()}>Roll</button>
+          <h3>You rolled a {roll}!</h3>
+        </div>
     </div>
-  );
+    </>
+  )
 }
 
 export default App;
